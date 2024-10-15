@@ -1,0 +1,65 @@
+### POST Crear nuevo comercio
+POST http://localhost:3000/api/comerce
+Content-Type: application/json
+
+{
+    "Nombre_del_comercio": "Mi Comercio",
+    "CIF": 12345678,
+    "password": "miPasswordSeguro",
+    "email": "comercio@example.com",
+    "Teléfono_de_contacto": 123456789
+}
+
+###
+POST http://localhost:3000/api/comerce
+Content-Type: application/json
+
+{
+    "Nombre_del_comercio": "Mi Comercio2",
+    "CIF": 87654321,
+    "password": "miPa2sswordSeguro",
+    "email": "comercio2@example2.com",
+    "Teléfono_de_contacto": 123456789
+}
+###
+
+DELETE http://localhost:3000/api/comerce/670ea1b76fd5326329866518
+
+###
+GET http://localhost:3000/api/comerce/670e8f7edc962dccacefe7a6
+
+###
+PUT http://localhost:3000/api/comerce/670e8f7edc962dccacefe7a6
+Content-Type: application/json
+
+{
+    "Nombre_del_comercio": "Mi Comercio2",
+    "CIF": 87654321,
+    "password": "miPa2sswordSeguro",
+    "email": "nuevoemail@example.com",
+    "Teléfono_de_contacto": 123456789
+}
+
+###
+GET http://localhost:3000/api/comerce
+
+###
+PUT  http://localhost:3000/api/comerce/cif/87654321
+Content-Type: application/json
+
+{
+    "Nombre_del_comercio": "Mi Comercio2con nuevo cip",
+    "CIF": 87654321,
+    "password": "miPa2sswordSeguro",
+    "email": "nuevoemaill@example.com",
+    "Telefono_de_contacto": 123456789
+}
+
+###
+GET http://localhost:3000/api/comerce/cif/87654321
+
+###
+DELETE http://localhost:3000/api/comerce/cif/87654321
+
+###
+GET http://localhost:3000/api/comerce/ciforder
