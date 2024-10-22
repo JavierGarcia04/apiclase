@@ -15,11 +15,11 @@ POST http://localhost:3000/api/comerce
 Content-Type: application/json
 
 {
-    "Nombre_del_comercio": "Mi Comercio2",
+    "Nombre_del_comercio": "Mi Comercio3",
     "CIF": 87654321,
-    "password": "miPa2sswordSeguro",
-    "email": "comercio2@example2.com",
-    "Teléfono_de_contacto": 123456789
+    "password": "miPa3sswordSeguro",
+    "email": "comercio3@example3.com",
+    "Teléfono_de_contacto": 12345678935
 }
 ###
 
@@ -63,3 +63,56 @@ DELETE http://localhost:3000/api/comerce/cif/87654321
 
 ###
 GET http://localhost:3000/api/comerce/ciforder
+
+###
+
+POST http://localhost:3000/api/comerceDetailsRoutes
+Content-Type: application/json
+
+{
+    "Ciudad": "Madrid",
+    "Actividad": "Venta de Ropa",
+    "Título": "Tienda de Ropa noderna",
+    "Resumen": "Ofrecemos una amplia variedad de ropa moderna y a la moda.",
+    "textos": ["Texto descriptivo 1", "Texto descriptivo 2"],
+    "imágenes": ["imagen1.jpg", "imagen2.jpg"],
+    "reseñasUsuarios": {
+        "scoring": 4.5,
+        "numeroPuntuacionesTotales": 10,
+        "reseñas": ["Excelente servicio", "Buena calidad"]
+    },
+    "isArchived": false
+}
+
+
+###
+
+DELETE  http://localhost:3000/api/comerceDetailsRoutes/6717db086ef0284c5cab1747
+
+
+###
+
+PUT http://localhost:3000/api/comerceDetailsRoutes/6717dba5255a273b8c0b0dbe
+Content-Type: application/json
+
+{
+    "Ciudad": "Madrid",
+    "Actividad": "Venta de Ropa",
+    "Título": "Tienda de Ropa moderna",
+    "Resumen": "Ofrecemos una amplia variedad de ropa moderna y a la moda.",
+    "textos": ["Texto descriptivo 1", "Texto descriptivo 2"],
+    "imágenes": ["imagen1.jpg", "imagen2.jpg"],
+    "reseñasUsuarios": {
+        "scoring": 4.5,
+        "numeroPuntuacionesTotales": 10,
+        "reseñas": ["Excelente servicio", "Buena calidad"]
+    },
+    "isArchived": false
+}
+
+###
+GET http://localhost:3000/api/comerceDetailsRoutes/6717dba5255a273b8c0b0dbe
+
+###
+PATCH  http://localhost:3000/api/comerceDetailsRoutes/6717dba5255a273b8c0b0dbe/archive
+
