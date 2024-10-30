@@ -116,3 +116,20 @@ GET http://localhost:3000/api/comerceDetailsRoutes/6717dba5255a273b8c0b0dbe
 ###
 PATCH  http://localhost:3000/api/comerceDetailsRoutes/6717dba5255a273b8c0b0dbe/archive
 
+
+
+###
+
+POST http://localhost:3000/api/userRoutes/users
+Content-Type: application/json
+
+{
+    "Nombre": "Juan Pérez",
+    "email": "juanperez@gmail.com",
+    "Password": "password123",
+    "Edad": 30,
+    "Ciudad": "Madrid",
+    "Intereses": ["Deportes", "Música", "Viajes"],
+    "PermiteRecibirOfertas": true,
+    "Role": "user"
+}
