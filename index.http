@@ -133,3 +133,15 @@ Content-Type: application/json
     "PermiteRecibirOfertas": true,
     "Role": "user"
 }
+###
+
+GET http://localhost:3000/api/comerceDetailsRoutes
+
+###
+POST http://localhost:3000/api/userRoutes/login
+Content-Type: application/json
+
+{
+    "email": "juanperez@gmail.com",
+    "Password": "password123"
+}

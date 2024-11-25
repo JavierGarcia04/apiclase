@@ -92,10 +92,20 @@ const deleteComerceDetails = async (req, res, next) => {
     }
 };
 
+const getAllComerceDetails = async (req, res) => {
+    try {
+        const comerceDetails = await ComercioDetails.find({ isArchived: false });
+        res.status(200).json(comerceDetails);
+    } catch (error) {
+        res.status(500).json({ message: "Error al obtener las páginas web", error: error.message });
+    }
+};
+
 module.exports = {
     getComerceDetailsById,
     createComerceDetails,
     updateComerceDetails,
     archiveComerceDetails,
-    deleteComerceDetails
+    deleteComerceDetails,
+    getAllComerceDetails
 };

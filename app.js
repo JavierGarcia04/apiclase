@@ -3,12 +3,14 @@ const mongoose = require("mongoose");
 const routes = require("./routes"); // Importa el router centralizado
 require("dotenv").config();
 const app = express();
+const cors = require ("cors")
 
 const dbConnect = require("./config/mongo");
 
 // Middleware para parsear JSON
 app.use(express.json());
 
+app.use(cors());
 // Conectar a MongoDB
 dbConnect();
 

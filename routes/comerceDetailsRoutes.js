@@ -3,12 +3,19 @@ const router = express.Router();
 const comproceDetailsController = require("../controllers/comerceDetailsController");
 const validators = require("../validators/comerceDetailsValidator");
 
+// Ruta para obtener todas las páginas web
+router.get(
+    "/",
+    comproceDetailsController.getAllComerceDetails
+);
+
 // Ruta para visitar una página web por su ID
 router.get(
     "/:id",
     validators.idParamValidator,
     comproceDetailsController.getComerceDetailsById
 );
+
 
 // Ruta para crear una nueva página web
 router.post(

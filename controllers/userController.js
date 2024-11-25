@@ -1,4 +1,5 @@
 const User = require('../models/nosql/User');
+const jwt = require('jsonwebtoken');
 
 // Crear un nuevo usuario
 const createUser = async (req, res) => {
@@ -102,10 +103,55 @@ const deleteUser = async (req, res) => {
     }
 };
 
+// Login de usuario
+const loginUser = async (req, res) => {
+    try {
+        const { email, Password } = req.body;
+
+        // Verificar si el usuario existe
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(401).json({ message: 'Credenciales inválidas' });
+        }
+
+        // Verificar la contraseña
+        const isPasswordValid = await user.comparePassword(Password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: 'Credenciales inválidas' });
+        }
+
+        // Generar token JWT
+        const token = jwt.sign(
+            { 
+                userId: user._id,
+                email: user.email,
+                role: user.Role 
+            },
+            process.env.JWT_SECRET, // Asegúrate de tener esta variable en tu .env
+            { expiresIn: '24h' }
+        );
+
+        // Preparar respuesta sin incluir la contraseña
+        const userResponse = user.toObject();
+        delete userResponse.Password;
+
+        res.status(200).json({
+            message: 'Login exitoso',
+            user: userResponse,
+            token
+        });
+
+    } catch (error) {
+        console.error('Error en login:', error);
+        res.status(500).json({ message: 'Error al iniciar sesión', error: error.message });
+    }
+};
+
 module.exports = {
     createUser,
     getAllUsers,
     getUserById,
     updateUser,
     deleteUser,
+    loginUser
 }; 

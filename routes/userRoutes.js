@@ -41,4 +41,10 @@ router.delete(
     userController.deleteUser
 );
 
+// Login de usuario
+router.post(
+    '/login',
+    userController.loginUser
+);
+
 module.exports = router; 
